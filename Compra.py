@@ -129,14 +129,14 @@ def main():
     costo_total_mercadona = total_mercadona + costo_viaje_mercadona
     costo_total_alcampo = total_alcampo + costo_viaje_alcampo
     
-    print(f"\nEl costo total en el Mercadona (incluyendo viaje): {costo_total_mercadona:.2f} €")
-    print(f"El costo total en el Alcampo (incluyendo viaje): {costo_total_alcampo:.2f} €")
+    print(f"\nEl costo total en el Mercadona (incluyendo viaje) es: {costo_total_mercadona:.2f} €")
+    print(f"El costo total en el Alcampo (incluyendo viaje) es: {costo_total_alcampo:.2f} €")
     
     # Determinar el supermercado más rentable
     if costo_total_mercadona < costo_total_alcampo:
-        print("\nEl supermercado más rentable es Mercadona.") 
+        print("\nEl supermercado más rentable es el Mercadona.") 
     elif costo_total_alcampo < costo_total_mercadona:
-        print("\nEl supermercado más rentable es Alcampo.") 
+        print("\nEl supermercado más rentable es el Alcampo.") 
     else: 
         print("\nAmbos supermercados son igual de rentables.")
 
