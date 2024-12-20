@@ -44,33 +44,43 @@ def mostrar_menu_productos(categoria, productos):
         print(f"{i}. {producto}")
     print("0. Volver al Menú Principal")
 
+# Función para pedir un número entero
+def pedir_entero(mensaje):
+    while True:
+        try:
+            valor = int(input(mensaje))
+            return valor
+        except ValueError:
+            print("Seleccione el numero que tiene al lado el prducto porfavor o ponga un número entero")
+            
+
 # Función principal para gestionar la compra
 def gestionar_compra():
     carrito = {}
     while True:
         mostrar_menu_principal()
-        opcion = int(input("Selecciona una opción: "))
-        
+        opcion = pedir_entero("Selecciona una opción: ")
         if opcion == 0:
             break
         elif 1 <= opcion <= len(alimentos):
             categoria, productos = alimentos[opcion - 1]
             while True:
                 mostrar_menu_productos(categoria, productos)
-                opcion_producto = int(input("Selecciona un producto: "))
-                
+                opcion_producto = pedir_entero("Selecciona un producto: ")
                 if opcion_producto == 0:
                     break
                 elif 1 <= opcion_producto <= len(productos):
                     producto = productos[opcion_producto - 1]
-                    cantidad = int(input(f"¿Cuántas unidades de {producto} quieres comprar? "))
+                    cantidad = pedir_entero(f"¿Cuántas unidades de {producto} quieres comprar? ")
                     if cantidad > 0:
                         if producto in carrito:
                             carrito[producto] += cantidad
                         else:
                             carrito[producto] = cantidad
-
     return carrito
+
+# El resto del código permanece igual
+
 
 # Función para calcular el total de la compra
 def calcular_total(carrito, precios):
